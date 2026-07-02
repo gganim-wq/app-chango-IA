@@ -1,0 +1,774 @@
+{
+  "productId": "304719",
+  "productName": "Cubeteras Set x 2 Dia 1 Ud.",
+  "brand": "DIA",
+  "brandId": 78,
+  "brandImageUrl": null,
+  "linkText": "cubeteras-set-x-2-dia-1-ud-304719",
+  "productReference": "8480017316226",
+  "productReferenceCode": null,
+  "categoryId": "10167",
+  "productTitle": "Cubeteras Set x 2 Di",
+  "metaTagDescription": "",
+  "releaseDate": "2025-04-12T00:00:00Z",
+  "clusterHighlights": {},
+  "productClusters": {
+    "564": "Productos DIA",
+    "1531": "rein",
+    "8272": "Destacado Vinos s25",
+    "8283": "Hasta 2x1 s25",
+    "8633": "Hasta 2x1 s31",
+    "8637": "Destacado Hasta 2x1 s31",
+    "10009": "Carnaval s07",
+    "10574": "Bazar HS",
+    "10878": "25% s25"
+  },
+  "searchableClusters": {
+    "564": "Productos DIA"
+  },
+  "categories": [
+    "/Hogar y Deco/Cocina/Fuentes y Utensilios/",
+    "/Hogar y Deco/Cocina/",
+    "/Hogar y Deco/"
+  ],
+  "categoriesIds": [
+    "/256/10165/10167/",
+    "/256/10165/",
+    "/256/"
+  ],
+  "link": "https://diaonline.supermercadosdia.com.ar/cubeteras-set-x-2-dia-1-ud-304719/p",
+  "PrecioPorUnd": [
+    "2001.00"
+  ],
+  "UnidaddeMedida": [
+    "1 UD"
+  ],
+  "IVA": [
+    "21"
+  ],
+  "InternalTax": [
+    "0"
+  ],
+  "FOOD": [
+    "PrecioPorUnd",
+    "UnidaddeMedida",
+    "IVA",
+    "InternalTax"
+  ],
+  "allSpecifications": [
+    "PrecioPorUnd",
+    "UnidaddeMedida",
+    "IVA",
+    "InternalTax"
+  ],
+  "allSpecificationsGroups": [
+    "FOOD"
+  ],
+  "description": "",
+  "items": [
+    {
+      "itemId": "304719",
+      "name": "Cubeteras Set x 2 Dia 1 Ud.",
+      "nameComplete": "Cubeteras Set x 2 Dia 1 Ud.",
+      "complementName": "",
+      "ean": "8480017316226",
+      "referenceId": [
+        {
+          "Key": "RefId",
+          "Value": "304719"
+        }
+      ],
+      "measurementUnit": "un",
+      "unitMultiplier": 1.0,
+      "modalType": null,
+      "isKit": false,
+      "images": [
+        {
+          "imageId": "349154",
+          "imageLabel": "",
+          "imageTag": "<img src=\"~/arquivos/ids/349154-#width#-#height#/Cubeteras-Set-x-2-Dia-1-Ud-_1.jpg?v=639180958055570000\" width=\"#width#\" height=\"#height#\" alt=\"Cubeteras-Set-x-2-Dia-1-Ud-_1\" id=\"\" />",
+          "imageUrl": "https://ardiaprod.vteximg.com.br/arquivos/ids/349154/Cubeteras-Set-x-2-Dia-1-Ud-_1.jpg?v=639180958055570000",
+          "imageText": "Cubeteras-Set-x-2-Dia-1-Ud-_1",
+          "imageLastModified": "2026-06-26T18:36:45.5570000Z"
+        },
+        {
+          "imageId": "349155",
+          "imageLabel": "",
+          "imageTag": "<img src=\"~/arquivos/ids/349155-#width#-#height#/Cubeteras-Set-x-2-Dia-1-Ud-_2.jpg?v=639180958055570000\" width=\"#width#\" height=\"#height#\" alt=\"Cubeteras-Set-x-2-Dia-1-Ud-_2\" id=\"\" />",
+          "imageUrl": "https://ardiaprod.vteximg.com.br/arquivos/ids/349155/Cubeteras-Set-x-2-Dia-1-Ud-_2.jpg?v=639180958055570000",
+          "imageText": "Cubeteras-Set-x-2-Dia-1-Ud-_2",
+          "imageLastModified": "2026-06-26T18:36:45.5570000Z"
+        }
+      ],
+      "sellers": [
+        {
+          "sellerId": "1",
+          "sellerName": "Supermercados DIA",
+          "addToCartLink": "https://diaonline.supermercadosdia.com.ar/checkout/cart/add?sku=304719&qty=1&seller=1&sc=1&price=200100&cv=_&sc=1",
+          "sellerDefault": true,
+          "commertialOffer": {
+            "DeliverySlaSamplesPerRegion": {
+              "0": {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            },
+            "Installments": [
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "American Express",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "American Express à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Visa",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Visa à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mastercard",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Mastercard à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Visa Electron",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Visa Electron à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Vale",
+                "PaymentSystemGroupName": "giftCardPaymentGroup",
+                "Name": "Vale à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Cabal",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Cabal à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Naranja",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Naranja à vista"
+              },
+              {
+                "Value": 667.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 3,
+                "PaymentSystemName": "Naranja",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Naranja 3 vezes sem juros"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Maestro",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Maestro à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mastercard Debit",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Mastercard Debit à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "MercadoPagoPro",
+                "PaymentSystemGroupName": "MercadoPagoProPaymentGroup",
+                "Name": "MercadoPagoPro à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "GOcuotas",
+                "PaymentSystemGroupName": "GOcuotasPaymentGroup",
+                "Name": "GOcuotas à vista"
+              },
+              {
+                "Value": 2001.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 2001.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Modo Payment",
+                "PaymentSystemGroupName": "Modo PaymentPaymentGroup",
+                "Name": "Modo Payment à vista"
+              }
+            ],
+            "DiscountHighLight": [],
+            "GiftSkuIds": [],
+            "Teasers": [],
+            "PromotionTeasers": [],
+            "BuyTogether": [],
+            "ItemMetadataAttachment": [],
+            "Price": 2001.0,
+            "ListPrice": 2001.0,
+            "PriceWithoutDiscount": 2001.0,
+            "FullSellingPrice": 2001.0,
+            "PriceToken": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImFkY2E1MjU1LTY3Y2YtNDFhNy1hNjE2LTNiM2FkYjUxZmRmNCIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InByaWNlIjoyMDAxMDAsInByaWNlV2l0aG91dERpc2NvdW50IjoyMDAxMDAsInNlbGxlciI6IjEiLCJpZCI6IjMwNDcxOSIsImFjY291bnROYW1lIjoiZGlhaW8iLCJzYWxlc0NoYW5uZWwiOiIxIn0sImV4cCI6MTc4Mjk0NjA5OSwiaWF0IjoxNzgyOTQ0Mjk5LCJqdGkiOiJmMDAzZDgyYy0xZjQ1LTRlY2UtYTNhZC1iNjJhYWZjYTczZjciLCJpc3MiOiJzZXNzaW9uL2RhdGEtc2lnbmVyIn0.2pRYAzWgBrk1dT6riRtEvcWbtoAKGqPeLdbz1dV6leVKgIA9QO7qSOmPPSPJR9y9Fv0hdlTJY3TJeGRL7aV47A",
+            "RewardValue": 0.0,
+            "PriceValidUntil": "2027-07-01T00:00:00Z",
+            "AvailableQuantity": 57,
+            "IsAvailable": true,
+            "Tax": 0.0,
+            "DeliverySlaSamples": [
+              {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            ],
+            "GetInfoErrorMessage": null,
+            "CacheVersionUsedToCallCheckout": "_",
+            "PaymentOptions": {
+              "installmentOptions": [
+                {
+                  "paymentSystem": "1",
+                  "bin": null,
+                  "paymentName": "American Express",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "2",
+                  "bin": null,
+                  "paymentName": "Visa",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "4",
+                  "bin": null,
+                  "paymentName": "Mastercard",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "10",
+                  "bin": null,
+                  "paymentName": "Visa Electron",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "16",
+                  "bin": null,
+                  "paymentName": "Vale",
+                  "paymentGroupName": "giftCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "33",
+                  "bin": null,
+                  "paymentName": "Cabal",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "35",
+                  "bin": null,
+                  "paymentName": "Naranja",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    },
+                    {
+                      "count": 3,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 66700,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 3,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 66700,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "39",
+                  "bin": null,
+                  "paymentName": "Maestro",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "65",
+                  "bin": null,
+                  "paymentName": "Mastercard Debit",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "127",
+                  "bin": null,
+                  "paymentName": "MercadoPagoPro",
+                  "paymentGroupName": "MercadoPagoProPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "177",
+                  "bin": null,
+                  "paymentName": "GOcuotas",
+                  "paymentGroupName": "GOcuotasPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "187",
+                  "bin": null,
+                  "paymentName": "Modo Payment",
+                  "paymentGroupName": "Modo PaymentPaymentGroup",
+                  "value": 200100,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 200100,
+                      "total": 200100,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 200100,
+                          "total": 200100
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "paymentSystems": [
+                {
+                  "id": 16,
+                  "name": "Vale",
+                  "groupName": "giftCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "16",
+                  "template": "giftCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 127,
+                  "name": "MercadoPagoPro",
+                  "groupName": "MercadoPagoProPaymentGroup",
+                  "validator": null,
+                  "stringId": "127",
+                  "template": "MercadoPagoProPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 65,
+                  "name": "Mastercard Debit",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "65",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 39,
+                  "name": "Maestro",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "39",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 1,
+                  "name": "American Express",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "1",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 33,
+                  "name": "Cabal",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "33",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 4,
+                  "name": "Mastercard",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "4",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": true,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 10,
+                  "name": "Visa Electron",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "10",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": true,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 2,
+                  "name": "Visa",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "2",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 187,
+                  "name": "Modo Payment",
+                  "groupName": "Modo PaymentPaymentGroup",
+                  "validator": null,
+                  "stringId": "187",
+                  "template": "Modo PaymentPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 35,
+                  "name": "Naranja",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "35",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": true,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 177,
+                  "name": "GOcuotas",
+                  "groupName": "GOcuotasPaymentGroup",
+                  "validator": null,
+                  "stringId": "177",
+                  "template": "GOcuotasPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T14:00:00Z",
+                  "availablePayments": null
+                }
+              ],
+              "payments": [],
+              "giftCards": [],
+              "giftCardMessages": [],
+              "availableAccounts": [],
+              "availableTokens": []
+            }
+          }
+        }
+      ],
+      "Videos": [],
+      "estimatedDateArrival": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "appId": "com.gustavo.changodia",
+  "appName": "Chango Dia",
+  "webDir": "dist",
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

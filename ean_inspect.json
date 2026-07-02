@@ -1,0 +1,983 @@
+{
+  "productId": "298961",
+  "productName": "Cerveza Andes Origen IPA Andina Lata 473 Ml.",
+  "brand": "ANDES(CERVEZA)",
+  "brandId": 2000030,
+  "brandImageUrl": null,
+  "linkText": "cerveza-andes-origen-ipa-andina-lata-473-ml-298961",
+  "productReference": "7792798002788",
+  "productReferenceCode": null,
+  "categoryId": "183",
+  "productTitle": "",
+  "metaTagDescription": "",
+  "releaseDate": "2025-09-26T00:00:00Z",
+  "clusterHighlights": {
+    "3588": "card4 oneapp"
+  },
+  "productClusters": {
+    "567": "Todas las Ofertas",
+    "569": "Especial Verano",
+    "1531": "rein",
+    "3588": "card4 oneapp",
+    "5638": "Super Despiertos",
+    "8098": "Alimentos y Bebidas - carousel",
+    "8102": "Super Despiertos",
+    "8273": "Alimentos y Bebidas s25",
+    "8294": "Cervezas Seleccionadas s25",
+    "8301": "Picada s25",
+    "8310": "Alimentos y Bebidas s26",
+    "8312": "Cervezas s26",
+    "8321": "Bebidas alcoholicas s26",
+    "8366": "Alimentos y Bebidas s27",
+    "8370": "Hasta 2x1 s27",
+    "8393": "2do al 50% s27",
+    "8403": "Cervezas s27",
+    "8484": "Cervezas s29",
+    "8491": "Especial Juntada con Amigos s29",
+    "8493": "Bebidas Alcoholicas s29",
+    "8506": "Alimentos y Bebidas s29",
+    "8510": "Hasta 2x1 s29",
+    "8522": "2do al 70% s29",
+    "8527": "Quilmes s29",
+    "8556": "Bebidas s30",
+    "8567": "Facebook 1 s30",
+    "8568": "Mas Destacados s30",
+    "8573": "Alimentos y Bebidas s30",
+    "8580": "Hasta 2x1 s30",
+    "8591": "2do al 50% s30",
+    "8595": "Arma tu Barra s30",
+    "8596": "Cervezas s30",
+    "8620": "Armá tu barra s30",
+    "8628": "Alimentos y Bebidas s31",
+    "8633": "Hasta 2x1 s31",
+    "8641": "Mas Destacados s31",
+    "8649": "Cervezas SD s31",
+    "8664": "Especial Cerveza s31",
+    "8738": "Cervezas s33",
+    "8740": "Especial Stockeate s33",
+    "8742": "Bebidas s33",
+    "8745": "Alimentos y Bebidas s33",
+    "8751": "35% s33",
+    "8753": "Mas Destacados s33",
+    "8763": "facebook 1 s33",
+    "8769": "Cervezas SD 13",
+    "8807": "Alimentos y Bebidas s34",
+    "8824": "Cervezas s34",
+    "8827": "Bebidas y Congelados s34",
+    "8838": "Cervezas s35",
+    "8849": "Alimentos y Bebidas s35",
+    "8865": "25% s35",
+    "8935": "Cervezas s37",
+    "8936": "Descuentos que florecen s37",
+    "8947": "Alimentos y Bebidas s37",
+    "8958": "Cervezas SD s37",
+    "8965": "Bebidas DP s37",
+    "8983": "Especial Cervezas y Picadas s38",
+    "8992": "Alimentos y Bebidas s38",
+    "9003": "Cervezas s38",
+    "9016": "Especial Primavera s39",
+    "9022": "Cervezas s39",
+    "9033": "Alimentos y Bebidas s39",
+    "9051": "25% s39",
+    "9110": "Especial Stockeate s41",
+    "9117": "Cervezas s41",
+    "9129": "Alimentos y Bebidas s41",
+    "9132": "Mas Destacados s41",
+    "9160": "Bebidas s42",
+    "9166": "Cervezas s42",
+    "9175": "Alimentos y Bebidas s42",
+    "9178": "Mas Destacados s42",
+    "9196": "Especial Cervezas y Picadas s43",
+    "9204": "Bebidas s43",
+    "9211": "Ofertas Dia",
+    "9212": "Cervezas s43",
+    "9216": "Alimentos y Bebidas s43",
+    "9219": "Mas Destacados s43",
+    "9252": "Bebidas s44",
+    "9264": "Cervezas s44",
+    "9282": "Bebidas Cyber 25",
+    "9286": "Gaseosas, Jugos, Cervezas Cyber 25",
+    "9288": "Cervezas Cyber 25",
+    "9291": "Alimentos y Bebidas s44",
+    "9299": "Mas Destacados s44",
+    "9391": "Cervezas y Gaseosas Cyber 25",
+    "9401": "Especial Cervezas y Picadas s46",
+    "9415": "Cervezas s46",
+    "9429": "Alimentos y Bebidas s46",
+    "9432": "Mas Destacados s46",
+    "9498": "Especial Black Week s48",
+    "9507": "Cerveza s48",
+    "9524": "Alimentos y Bebidas s48",
+    "9526": "Mas Destacados s48",
+    "9612": "Especial Stockeate s50",
+    "9618": "Cervezas s50",
+    "9621": "Bebidas s50",
+    "9633": "Alimentos y Bebidas s50",
+    "9636": "Mas Destacados s50",
+    "9640": "Alimentos y bebidas s50",
+    "9664": "Alimentos y bebidas S51",
+    "9675": "Cervezas s51",
+    "9682": "Alimentos y bebidas s52",
+    "9686": "Cerveza s52",
+    "9693": "Mas destacados s52",
+    "9711": "Especial Verano 2026",
+    "9719": "Bebidas Alcoholicas s01",
+    "9721": "Alimentos y Bebidas s01",
+    "9724": "Mas Destacados s01",
+    "9730": "Cervezas s01",
+    "9733": "Almacen y bebidas s1",
+    "9738": "Facebook 2 s02",
+    "9824": "25% Categoria sp03",
+    "9829": "Cervezas  s03",
+    "9843": "Alimentos y Bebidas s03",
+    "9844": "Destacados s03",
+    "9929": "Alimentos y Bebidas s05",
+    "9930": "Mas Destacados s05",
+    "9948": "Cervezas s05",
+    "10009": "Carnaval s07",
+    "10025": "Almacen y bebidas s07",
+    "10033": "Cervezas s07",
+    "10038": "Mas Destacados s07",
+    "10103": "Cervezas s09",
+    "10113": "Congelados, snacks y cervezas SD s09",
+    "10116": "Mas Destacados s09",
+    "10117": "Alimentos y Bebidas s09",
+    "10127": "Bebidas s09",
+    "10146": "Bebidas Marzo",
+    "10154": "Mas Destacados s10",
+    "10155": "Alimentos y Bebidas s10",
+    "10183": "Cervezas s10",
+    "10196": "Especial San Patricio s11",
+    "10205": "Cervezas s11",
+    "10214": "Mas Destacados s11",
+    "10215": "Alimentos y Bebidas s11",
+    "10287": "Mas Destacados S13",
+    "10289": "Alimentos y Bebidas S13",
+    "10363": "Dia Recargado",
+    "10370": "Mas Destacados s15",
+    "10371": "Alimentos y Bebidas s15",
+    "10435": "Destacado Bebidas s17",
+    "10436": "Mas Destacados s17",
+    "10438": "Alimentos y Bebidas s17",
+    "10446": "Especial Bebidas s17",
+    "10448": "Cervezas s17",
+    "10465": "Cerveza Andes s17",
+    "10478": "Mas Destacados s18",
+    "10480": "Alimentos y Bebidas s18",
+    "10516": "Alimentos y Bebidas s18 SD",
+    "10518": "2do al 50 s18",
+    "10523": "Hot Sale 2026",
+    "10545": "Alimentos y Bebidas s19",
+    "10547": "Mas Destacados s19",
+    "10550": "Bebidas HS 2026",
+    "10557": "Cervezas y Gaseosas HS 2026",
+    "10559": "Cervezas HS 2026",
+    "10572": "Folleto s19",
+    "10589": "Quilmes HS 2026",
+    "10592": "40%  HS 2026",
+    "10602": "Cervezas HS 2026",
+    "10628": "40% HS 2026",
+    "10632": "Alimentos y Bebidas HotSale 2026",
+    "10658": "Quilmes HS 2026",
+    "10674": "Bebidas Mayo",
+    "10686": "Alimentos y Bebidas s21",
+    "10695": "35% categoria s21",
+    "10703": "Hasta 45% s21",
+    "10705": "Cervezas y vinos s21",
+    "10709": "Especial Arma tu picada s22",
+    "10715": "Cervezas s22",
+    "10716": "Bebidas s22",
+    "10743": "Bebidas s22",
+    "10744": "Alimentos y Bebidas s22",
+    "10745": "25% s22",
+    "10801": "Mas Destacados - Fijo",
+    "10820": "Mundial 2026",
+    "10823": "Bebidas s24",
+    "10832": "Cervezas s24",
+    "10841": "25% s24",
+    "10844": "Cervezas SD s24",
+    "10848": "Alimentos y Bebidas s24",
+    "10863": "Especial Dia del Padre s25",
+    "10871": "Cervezas s25",
+    "10878": "25% s25",
+    "10880": "Quilmes s25",
+    "10882": "Alimentos y Bebidas s25",
+    "10942": "Oferta Principal",
+    "10965": "Bebidas s27",
+    "10983": "Partido 3 de Julio Argentina",
+    "10986": "Alimentos y bebidas s27",
+    "10992": "Bebidas s27"
+  },
+  "searchableClusters": {
+    "10523": "Hot Sale 2026"
+  },
+  "categories": [
+    "/Bebidas/Cervezas/Rubia/",
+    "/Bebidas/Cervezas/",
+    "/Bebidas/"
+  ],
+  "categoriesIds": [
+    "/164/182/183/",
+    "/164/182/",
+    "/164/"
+  ],
+  "link": "https://diaonline.supermercadosdia.com.ar/cerveza-andes-origen-ipa-andina-lata-473-ml-298961/p",
+  "PrecioPorUnd": [
+    "6744.19"
+  ],
+  "UnidaddeMedida": [
+    "1 LT"
+  ],
+  "IVA": [
+    "21"
+  ],
+  "InternalTax": [
+    "16,28"
+  ],
+  "FOOD": [
+    "PrecioPorUnd",
+    "UnidaddeMedida",
+    "IVA",
+    "InternalTax"
+  ],
+  "allSpecifications": [
+    "PrecioPorUnd",
+    "UnidaddeMedida",
+    "IVA",
+    "InternalTax"
+  ],
+  "allSpecificationsGroups": [
+    "FOOD"
+  ],
+  "description": "",
+  "items": [
+    {
+      "itemId": "298961",
+      "name": "Cerveza Andes Origen IPA Andina Lata 473 Ml.",
+      "nameComplete": "Cerveza Andes Origen IPA Andina Lata 473 Ml.",
+      "complementName": "",
+      "ean": "7792798002788",
+      "referenceId": [
+        {
+          "Key": "RefId",
+          "Value": "298961"
+        }
+      ],
+      "measurementUnit": "un",
+      "unitMultiplier": 1.0,
+      "modalType": null,
+      "isKit": false,
+      "images": [
+        {
+          "imageId": "329539",
+          "imageLabel": "",
+          "imageTag": "<img src=\"~/arquivos/ids/329539-#width#-#height#/Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_1.jpg?v=638858481225070000\" width=\"#width#\" height=\"#height#\" alt=\"Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_1\" id=\"\" />",
+          "imageUrl": "https://ardiaprod.vteximg.com.br/arquivos/ids/329539/Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_1.jpg?v=638858481225070000",
+          "imageText": "Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_1",
+          "imageLastModified": "2025-06-18T12:55:22.5070000Z"
+        },
+        {
+          "imageId": "329540",
+          "imageLabel": "",
+          "imageTag": "<img src=\"~/arquivos/ids/329540-#width#-#height#/Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_2.jpg?v=638858481225370000\" width=\"#width#\" height=\"#height#\" alt=\"Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_2\" id=\"\" />",
+          "imageUrl": "https://ardiaprod.vteximg.com.br/arquivos/ids/329540/Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_2.jpg?v=638858481225370000",
+          "imageText": "Cerveza-Andes-Origen-IPA-Andina-Lata-473-Ml-_2",
+          "imageLastModified": "2025-06-18T12:55:22.5370000Z"
+        }
+      ],
+      "sellers": [
+        {
+          "sellerId": "1",
+          "sellerName": "Supermercados DIA",
+          "addToCartLink": "https://diaonline.supermercadosdia.com.ar/checkout/cart/add?sku=298961&qty=1&seller=1&sc=1&price=319000&cv=_&sc=1",
+          "sellerDefault": true,
+          "commertialOffer": {
+            "DeliverySlaSamplesPerRegion": {
+              "0": {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            },
+            "Installments": [
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "American Express",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "American Express à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Visa",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Visa à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mastercard",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Mastercard à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Visa Electron",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Visa Electron à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Vale",
+                "PaymentSystemGroupName": "giftCardPaymentGroup",
+                "Name": "Vale à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Cabal",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Cabal à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Naranja",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Naranja à vista"
+              },
+              {
+                "Value": 1063.33,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 3,
+                "PaymentSystemName": "Naranja",
+                "PaymentSystemGroupName": "creditCardPaymentGroup",
+                "Name": "Naranja 3 vezes sem juros"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Maestro",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Maestro à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Mastercard Debit",
+                "PaymentSystemGroupName": "debitCardPaymentGroup",
+                "Name": "Mastercard Debit à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "MercadoPagoPro",
+                "PaymentSystemGroupName": "MercadoPagoProPaymentGroup",
+                "Name": "MercadoPagoPro à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "GOcuotas",
+                "PaymentSystemGroupName": "GOcuotasPaymentGroup",
+                "Name": "GOcuotas à vista"
+              },
+              {
+                "Value": 3190.0,
+                "InterestRate": 0.0,
+                "TotalValuePlusInterestRate": 3190.0,
+                "NumberOfInstallments": 1,
+                "PaymentSystemName": "Modo Payment",
+                "PaymentSystemGroupName": "Modo PaymentPaymentGroup",
+                "Name": "Modo Payment à vista"
+              }
+            ],
+            "DiscountHighLight": [],
+            "GiftSkuIds": [],
+            "Teasers": [
+              {
+                "<Name>k__BackingField": "3x2",
+                "<GeneralValues>k__BackingField": {},
+                "<Conditions>k__BackingField": {
+                  "<MinimumQuantity>k__BackingField": 3,
+                  "<Parameters>k__BackingField": []
+                },
+                "<Effects>k__BackingField": {
+                  "<Parameters>k__BackingField": []
+                }
+              }
+            ],
+            "PromotionTeasers": [
+              {
+                "Name": "3x2",
+                "GeneralValues": {},
+                "Conditions": {
+                  "MinimumQuantity": 3,
+                  "Parameters": []
+                },
+                "Effects": {
+                  "Parameters": []
+                }
+              }
+            ],
+            "BuyTogether": [],
+            "ItemMetadataAttachment": [],
+            "Price": 3190.0,
+            "ListPrice": 3190.0,
+            "PriceWithoutDiscount": 3190.0,
+            "FullSellingPrice": 3190.0,
+            "PriceToken": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjFkNzM0Mzc0LWYzNzYtNDM4MS05YzJlLTQ5MjkyMWMxMmU4MiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InByaWNlIjozMTkwMDAsInByaWNlV2l0aG91dERpc2NvdW50IjozMTkwMDAsInNlbGxlciI6IjEiLCJpZCI6IjI5ODk2MSIsImFjY291bnROYW1lIjoiZGlhaW8iLCJzYWxlc0NoYW5uZWwiOiIxIn0sImV4cCI6MTc4Mjk1MTgxMiwiaWF0IjoxNzgyOTUwMDEyLCJqdGkiOiI4YWVmMjQ1MC0wOWYwLTQ3OWUtODUwZC02OTBhYjI1MjZmNjEiLCJpc3MiOiJzZXNzaW9uL2RhdGEtc2lnbmVyIn0.LkfAcFHXpThjBP0gfdnDnVEz2F4lgdRI3CB8oZmz0kHSHppspmNbA9u4bdwAHFxjKr1dzbgaBNQth1LmoV7d6Q",
+            "RewardValue": 0.0,
+            "PriceValidUntil": "2027-07-01T00:00:00Z",
+            "AvailableQuantity": 128,
+            "IsAvailable": true,
+            "Tax": 0.0,
+            "DeliverySlaSamples": [
+              {
+                "DeliverySlaPerTypes": [],
+                "Region": null
+              }
+            ],
+            "GetInfoErrorMessage": null,
+            "CacheVersionUsedToCallCheckout": "_",
+            "PaymentOptions": {
+              "installmentOptions": [
+                {
+                  "paymentSystem": "1",
+                  "bin": null,
+                  "paymentName": "American Express",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "2",
+                  "bin": null,
+                  "paymentName": "Visa",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "4",
+                  "bin": null,
+                  "paymentName": "Mastercard",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "10",
+                  "bin": null,
+                  "paymentName": "Visa Electron",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "16",
+                  "bin": null,
+                  "paymentName": "Vale",
+                  "paymentGroupName": "giftCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "33",
+                  "bin": null,
+                  "paymentName": "Cabal",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "35",
+                  "bin": null,
+                  "paymentName": "Naranja",
+                  "paymentGroupName": "creditCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    },
+                    {
+                      "count": 3,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 106333,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 3,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 106333,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "39",
+                  "bin": null,
+                  "paymentName": "Maestro",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "65",
+                  "bin": null,
+                  "paymentName": "Mastercard Debit",
+                  "paymentGroupName": "debitCardPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "127",
+                  "bin": null,
+                  "paymentName": "MercadoPagoPro",
+                  "paymentGroupName": "MercadoPagoProPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "177",
+                  "bin": null,
+                  "paymentName": "GOcuotas",
+                  "paymentGroupName": "GOcuotasPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "paymentSystem": "187",
+                  "bin": null,
+                  "paymentName": "Modo Payment",
+                  "paymentGroupName": "Modo PaymentPaymentGroup",
+                  "value": 319000,
+                  "installments": [
+                    {
+                      "count": 1,
+                      "hasInterestRate": false,
+                      "interestRate": 0,
+                      "value": 319000,
+                      "total": 319000,
+                      "sellerMerchantInstallments": [
+                        {
+                          "id": "ARDIANEW",
+                          "count": 1,
+                          "hasInterestRate": false,
+                          "interestRate": 0,
+                          "value": 319000,
+                          "total": 319000
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "paymentSystems": [
+                {
+                  "id": 16,
+                  "name": "Vale",
+                  "groupName": "giftCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "16",
+                  "template": "giftCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 127,
+                  "name": "MercadoPagoPro",
+                  "groupName": "MercadoPagoProPaymentGroup",
+                  "validator": null,
+                  "stringId": "127",
+                  "template": "MercadoPagoProPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 65,
+                  "name": "Mastercard Debit",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "65",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 39,
+                  "name": "Maestro",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "39",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 1,
+                  "name": "American Express",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "1",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 33,
+                  "name": "Cabal",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "33",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 4,
+                  "name": "Mastercard",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "4",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": true,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 10,
+                  "name": "Visa Electron",
+                  "groupName": "debitCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "10",
+                  "template": "debitCardPaymentGroup-template",
+                  "requiresDocument": true,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 2,
+                  "name": "Visa",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "2",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 187,
+                  "name": "Modo Payment",
+                  "groupName": "Modo PaymentPaymentGroup",
+                  "validator": null,
+                  "stringId": "187",
+                  "template": "Modo PaymentPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 35,
+                  "name": "Naranja",
+                  "groupName": "creditCardPaymentGroup",
+                  "validator": null,
+                  "stringId": "35",
+                  "template": "creditCardPaymentGroup-template",
+                  "requiresDocument": true,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                },
+                {
+                  "id": 177,
+                  "name": "GOcuotas",
+                  "groupName": "GOcuotasPaymentGroup",
+                  "validator": null,
+                  "stringId": "177",
+                  "template": "GOcuotasPaymentGroup-template",
+                  "requiresDocument": false,
+                  "isCustom": false,
+                  "description": null,
+                  "requiresAuthentication": false,
+                  "dueDate": "2026-07-08T23:00:00Z",
+                  "availablePayments": null
+                }
+              ],
+              "payments": [],
+              "giftCards": [],
+              "giftCardMessages": [],
+              "availableAccounts": [],
+              "availableTokens": []
+            }
+          }
+        }
+      ],
+      "Videos": [],
+      "estimatedDateArrival": null
+    }
+  ]
+}
