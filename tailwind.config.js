@@ -1,10 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: 'class', // Permite alternar modo oscuro manualmente añadiendo la clase 'dark' a la etiqueta html
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
+        figmaBlack: '#000000',
+        figmaNavy: '#0A0C10',
+        figmaRed: '#FF1E1E',
+        figmaCyan: '#00D1FF',
+        figmaPurple: '#A855F7',
+        figmaBlue: '#2563EB',
+        darkBg: {
+          700: '#1e1e1e',
+          705: '#252525',
+          750: '#1a1a1a',
+          800: '#121212',
+          850: '#0f0f0f',
+          900: '#000000',
+        },
         diaRed: {
           50: '#fef2f2',
           100: '#fee2e2',
@@ -12,27 +29,25 @@ export default {
           300: '#fca5a5',
           400: '#f87171',
           500: '#ef4444',
-          600: '#e5121b',  // Rojo Dia Oficial
-          700: '#c20e14',
-          800: '#991115',
-          900: '#7f1317',
-        },
-        darkBg: {
-          900: '#0b0f19', // Fondo extra oscuro para pantallas OLED
-          850: '#0f1422', // Fondo intermedio para headers en modo oscuro
-          800: '#111827', // Fondo oscuro secundario
-          750: '#18202e', // Botones y paneles secundarios
-          705: '#1d2735', // Corrección para tarjetas de carrito
-          700: '#1f2937', // Tarjetas y paneles en modo oscuro
-          600: '#374151',
+          600: '#e5121b',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'Montserrat', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '3rem',
       },
       boxShadow: {
-        premium: '0 4px 20px -2px rgba(0, 0, 0, 0.15), 0 2px 8px -1px rgba(0, 0, 0, 0.08)',
-        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.2)',
+        'premium': '0 20px 50px rgba(0, 0, 0, 0.5)',
+        'accent': '0 10px 20px rgba(255, 30, 30, 0.3)',
+      },
+      backgroundImage: {
+        'savings-gradient': 'linear-gradient(135deg, #00D1FF 0%, #BC00FF 100%)',
       }
     },
   },
