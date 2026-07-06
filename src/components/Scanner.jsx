@@ -54,8 +54,7 @@ export default function Scanner({ onScanSuccess, onScanError, onClose }) {
   };
 
   return (
-    <div className="w-full h-full bg-black flex flex-col sm:rounded-[4rem] overflow-hidden animate-fade-in relative">
-      
+    <div className="w-full h-full bg-black flex flex-col overflow-hidden animate-fade-in">
       {/* HEADER FIGMA (Imagen 2) */}
       <header className="pt-14 pb-6 px-10 flex justify-between items-center bg-black">
           <button onClick={onClose} className="text-white opacity-60"><ChevronLeft className="w-7 h-7" /></button>
@@ -66,19 +65,18 @@ export default function Scanner({ onScanSuccess, onScanError, onClose }) {
           <button onClick={onClose} className="text-white opacity-60"><X className="w-7 h-7" /></button>
       </header>
 
-      <div className="flex-1 flex flex-col items-center px-10 pb-12 space-y-8 no-scrollbar">
+      <div className="flex-1 flex flex-col items-center px-10 pb-6 space-y-4 no-scrollbar">
 
           <h3 className="text-[10px] font-bold text-center text-gray-600 uppercase tracking-[0.4em] pt-4">
             ESCANEAR PRODUCTOS
           </h3>
 
           {/* ÁREA DE ESCANEO FIGMA STYLE (Imagen 2) */}
-          <div className="relative w-full aspect-[4/5] max-w-[340px] rounded-[3rem] overflow-hidden border-2 border-white/10 shadow-2xl">
+          <div className="relative w-full aspect-square max-w-[260px] rounded-[3rem] overflow-hidden border-2 border-white/10 shadow-2xl">
              {!isScanning ? (
                 <div className="w-full h-full bg-gray-900 flex flex-col items-center justify-center space-y-4 p-8 text-center relative overflow-hidden">
                     <div className="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80')] bg-cover bg-center grayscale"></div>
                     <Scan className="w-16 h-16 text-figmaCyan relative z-10 animate-pulse" />
-                    <button onClick={startWebcam} className="px-6 py-3 bg-white/10 text-white rounded-full text-[10px] font-black uppercase tracking-widest relative z-10 border border-white/20">Activar Cámara</button>
                 </div>
              ) : (
                 <div className="w-full h-full relative bg-black">
@@ -101,8 +99,8 @@ export default function Scanner({ onScanSuccess, onScanError, onClose }) {
           </p>
 
           {/* INGRESO MANUAL FIGMA STYLE (Imagen 2) */}
-          <div className="w-full pt-10">
-             <form onSubmit={handleManualSubmit} className="flex flex-col gap-6">
+          <div className="w-full pt-4">
+             <form onSubmit={handleManualSubmit} className="flex flex-col gap-4">
                 <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl flex items-center px-6 py-5 gap-4">
                     <input
                         type="text"
@@ -116,13 +114,24 @@ export default function Scanner({ onScanSuccess, onScanError, onClose }) {
                     <button type="submit" className="text-white font-black text-xs uppercase tracking-widest pr-2">CARGAR</button>
                 </div>
 
-                <button
-                    onClick={onClose}
-                    type="button"
-                    className="w-full bg-[#1A1A1A] text-white py-6 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] shadow-lg active:scale-[0.98] transition-all"
-                >
-                    CERRAR
-                </button>
+                <div className="flex gap-3">
+                  {!isScanning && (
+                    <button
+                        onClick={startWebcam}
+                        type="button"
+                        className="flex-1 bg-figmaCyan text-black py-5 rounded-[2rem] font-black text-sm uppercase tracking-widest shadow-lg active:scale-[0.98] transition-all"
+                    >
+                        Activar Cámara
+                    </button>
+                  )}
+                  <button
+                      onClick={onClose}
+                      type="button"
+                      className="flex-1 bg-[#1A1A1A] text-white py-5 rounded-[2rem] font-black text-sm uppercase tracking-widest shadow-lg active:scale-[0.98] transition-all"
+                  >
+                      Cerrar
+                  </button>
+                </div>
              </form>
           </div>
 

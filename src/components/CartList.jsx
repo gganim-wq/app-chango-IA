@@ -1,7 +1,7 @@
 import React from 'react';
-import { Trash2, Plus, Minus, ShoppingBag, Percent, Sparkles, X, Bot, Tag, ShoppingCart } from 'lucide-react';
+import { Trash2, Plus, Minus, ShoppingBag, Percent, Sparkles, X, Bot, Tag, ShoppingCart, Check } from 'lucide-react';
 
-export default function CartList({ items = [], getEffectivePrice, onUpdateQuantity, onRemoveItem, onClearCart }) {
+export default function CartList({ items = [], markedEans = new Set(), getEffectivePrice, onUpdateQuantity, onRemoveItem, onClearCart }) {
   if (items.length === 0) return null;
 
   const formatCurrency = (val) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(val);
@@ -12,9 +12,15 @@ export default function CartList({ items = [], getEffectivePrice, onUpdateQuanti
         const currentUnitPrice = getEffectivePrice(item);
         const ahorroItem = (item.listPrice - currentUnitPrice) * item.quantity;
         const hasPromotion = item.qtyPromoFormula || (item.tipoOferta && item.tipoOferta !== 'Ninguna');
+        const isMarked = markedEans.has(item.ean);
 
         return (
-          <div key={item.ean + (item.qtyPromoFormula || item.tipoOferta)} className="bg-black/40 rounded-[2.5rem] p-5 border border-white/5 flex gap-5 items-center shadow-lg relative overflow-hidden mb-4">
+          <div key={item.ean + (item.qtyPromoFormula || item.tipoOferta)} className={`rounded-[2.5rem] p-5 border flex gap-5 items-center shadow-lg relative overflow-hidden mb-4 transition-all ${isMarked ? 'bg-green-900/20 border-green-500/50' : 'bg-black/40 border-white/5'}`}>
+            {isMarked && (
+              <div className="absolute top-0 right-0 bg-green-500 text-white p-2 rounded-bl-2xl">
+                <Check className="w-4 h-4" />
+              </div>
+            )}
 
             {/* MINIATURA CON TAG DE PROMO (Imagen 1) */}
             <div className="shrink-0 relative">

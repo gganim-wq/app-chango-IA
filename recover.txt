@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Moon, Sun, Barcode, Sparkles, X, Home, Tag, ShoppingCart, Scan, ShoppingBag, Bot, Trash2, ClipboardList, CheckSquare, Square, Check, Calendar, Package, ChevronLeft, Plus, Minus, Mic, Edit2 } from 'lucide-react';
+import { Moon, Sun, Barcode, Sparkles, X, Home, Tag, ShoppingCart, Scan, ShoppingBag, Bot, Trash2, ClipboardList, CheckSquare, Square, Check, Calendar, Package, ChevronLeft, Plus, Mic } from 'lucide-react';
 import { CapacitorHttp, Capacitor } from '@capacitor/core';
 import { SpeechRecognition as CapacitorSpeech } from '@capacitor-community/speech-recognition';
 import CartList from './components/CartList';
@@ -21,6 +21,7 @@ export default function App() {
   });
   
   const [activeTab, setActiveTab] = useState('inicio');
+  const [isScannerOpen, setIsScannerOpen] = useState(false);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [isManualModalOpen, setIsManualModalOpen] = useState(false);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
@@ -33,7 +34,6 @@ export default function App() {
   const [showSaveOrderModal, setShowSaveOrderModal] = useState(false);
   const [saveOrderName, setSaveOrderName] = useState('');
   const [selectedPedidoId, setSelectedPedidoId] = useState(null);
-  const [itemToLink, setItemToLink] = useState(null);
   const selectedPedido = pedidos.find(p => p.id === selectedPedidoId) || null;
   const [isCheckMode, setIsCheckMode]   = useState(false);      // modo chequeo activo
 
@@ -53,17 +53,6 @@ export default function App() {
   const [createListName, setCreateListName] = useState('');
   const [showReplacementModal, setShowReplacementModal] = useState(false);
   const [replacementProduct, setReplacementProduct] = useState(null);
-
-  const [isEditingName, setIsEditingName] = useState(false);
-  const [editingNameValue, setEditingNameValue] = useState('');
-
-  const [showCloseOrderConfirm, setShowCloseOrderConfirm] = useState(false);
-  const [itemToDelete, setItemToDelete] = useState(null);
-  const [itemToEdit, setItemToEdit] = useState(null);
-  const [orderToRename, setOrderToRename] = useState(null);
-  const [orderToDelete, setOrderToDelete] = useState(null);
-  const [itemToQuickAdd, setItemToQuickAdd] = useState(null);
-  const [enteredPrice, setEnteredPrice] = useState('');
 
   useEffect(() => { localStorage.setItem('dia_cart',    JSON.stringify(cart));    }, [cart]);
   useEffect(() => { localStorage.setItem('chango_pedidos', JSON.stringify(pedidos)); }, [pedidos]);
@@ -140,6 +129,7 @@ export default function App() {
   };
 
   const handleBarcodeScanned = async (ean) => {
+    setIsScannerOpen(false);
     setIsLoading(true);
     try {
       const url = `https://diaonline.supermercadosdia.com.ar/api/catalog_system/pub/products/search?fq=alternateIds_Ean:${ean}`;
@@ -469,12 +459,6 @@ export default function App() {
     if (selectedPedido) {
       const isProductInPedido = isReplacement || selectedPedido.items.some(i => i.ean === product.ean);
       if (isProductInPedido) {
-        setPedidos(prev => prev.map(p => {
-          if (p.id !== selectedPedidoId) return p;
-          const c = new Set(p.checkedEans || []);
-          c.add(product.ean);
-          return { ...p, checkedEans: Array.from(c) };
-        }));
         setActiveTab('pedidos');
       } else {
         setActiveTab('changuito');
@@ -526,10 +510,10 @@ export default function App() {
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto px-6 no-scrollbar">
+        <main className="flex-1 overflow-y-auto px-6 no-scrollbar pb-32">
 
           {activeTab === 'inicio' && (
-            <div className="flex flex-col h-full animate-fade-in pt-4 pb-32">
+            <div className="flex flex-col h-full animate-fade-in pt-4">
               {/* BANNER IA CON ROBOT */}
               <div className="bg-[#1A1D24] rounded-[2.5rem] p-6 relative overflow-hidden border border-white/5 shadow-2xl flex items-center gap-4 mb-10">
                  <div className="flex-1 z-10 space-y-2">
@@ -557,7 +541,7 @@ export default function App() {
               {/* BOTÓN ESCANEAR AL FINAL (FIGMA 4) */}
               <div className="pb-10">
                   <button
-                      onClick={() => setActiveTab('escanear')}
+                      onClick={() => setIsScannerOpen(true)}
                       className="w-full py-5 bg-figmaRed text-white rounded-full font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-accent"
                   >
                       <Scan className="w-5 h-5" />
@@ -568,9 +552,9 @@ export default function App() {
           )}
 
           {activeTab === 'changuito' && (
-            <div className="pb-32 animate-fade-in min-h-full">
+            <div className="pt-2 space-y-6 animate-fade-in relative">
                 {/* CABECERA FIJA XHDPI STYLE (Imagen 1) */}
-                <div className="sticky top-0 z-10 bg-black pt-4 pb-4 space-y-4 border-b border-white/10 -mx-6 px-6">
+                <div className="space-y-6">
                     <div className="grid grid-cols-2 gap-4">
                         <div className="bg-figmaBlue p-6 rounded-[2rem] shadow-xl relative overflow-hidden h-32 flex flex-col justify-between">
                             <p className="text-[10px] font-bold text-blue-100 uppercase tracking-widest">Total a Pagar:</p>
@@ -613,42 +597,17 @@ export default function App() {
 
                 <div className="pt-4">
                     <CartList
-                        items={[...cart].sort((a, b) => {
-                          if (!selectedPedido) return 0;
-                          const hasA = selectedPedido.items.some(i => i.ean === a.ean);
-                          const hasB = selectedPedido.items.some(i => i.ean === b.ean);
-                          if (!hasA && hasB) return -1;
-                          if (hasA && !hasB) return 1;
-                          return 0;
-                        })}
-                        markedEans={new Set(selectedPedido ? (selectedPedido.checkedEans || []) : pedidos.flatMap(p => p.checkedEans || []))}
+                        items={cart}
                         getEffectivePrice={getEffectivePrice}
                         onUpdateQuantity={(ean, q) => setCart(prev => prev.map(i => i.ean === ean ? {...i, quantity: q} : i))}
-                        onRemoveItem={(ean) => {
-                          setCart(prev => prev.filter(i => i.ean !== ean));
-                          setPedidos(prev => prev.map(p => {
-                            if (!p.checkedEans?.includes(ean)) return p;
-                            return { ...p, checkedEans: p.checkedEans.filter(e => e !== ean) };
-                          }));
-                        }}
+                        onRemoveItem={(ean) => setCart(prev => prev.filter(i => i.ean !== ean))}
                         onClearCart={() => setShowClearConfirm(true)}
                     />
                 </div>
             </div>
           )}
 
-          {activeTab === 'ofertas' && <div className="pt-4 pb-32"><OffersList onSelectOffer={handleBarcodeScanned} /></div>}
-
-          {/* ── TAB ESCANEAR ───────────────────────────────────────────── */}
-          {activeTab === 'escanear' && (
-            <div className="animate-fade-in h-full flex flex-col pb-[90px] -mx-6">
-              <Scanner 
-                onScanSuccess={handleBarcodeScanned} 
-                onScanError={alert} 
-                onClose={() => setActiveTab('inicio')} 
-              />
-            </div>
-          )}
+          {activeTab === 'ofertas' && <div className="pt-4"><OffersList onSelectOffer={handleBarcodeScanned} /></div>}
 
           {/* ── TAB PEDIDOS ────────────────────────────────────────────── */}
           {activeTab === 'pedidos' && (
@@ -657,17 +616,14 @@ export default function App() {
               const checkedSet = new Set(selectedPedido.checkedEans || []);
               const allChecked = selectedPedido.items.every(i => checkedSet.has(i.ean));
               return (
-                <div className="flex flex-col animate-fade-in min-h-full pb-32">
-                  <div className="sticky top-0 z-10 bg-black pt-4 pb-4 space-y-4 border-b border-white/10 -mx-6 px-6">
+                <div className="flex flex-col animate-fade-in space-y-4 pt-2">
                   {/* HEADER */}
                   <div className="flex items-center justify-between">
-                    <div className="flex-1 min-w-0 pr-4 flex items-center gap-3">
-                      <h3 className="text-xl font-black text-white truncate leading-tight">{selectedPedido.name}</h3>
-                      <span className="text-[10px] font-bold text-figmaCyan bg-figmaCyan/10 px-3 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
-                        {checkedSet.size} / {selectedPedido.items.length} prods
-                      </span>
+                    <div>
+                      <p className="text-[9px] font-bold text-gray-600 uppercase tracking-widest">Pedido de</p>
+                      <h3 className="text-xl font-black text-white">{selectedPedido.name}</h3>
                     </div>
-                    <button onClick={() => { setSelectedPedidoId(null); setIsCheckMode(false); setIsEditingName(false); }} className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-gray-400 active:scale-95 transition-all shrink-0">
+                    <button onClick={() => { setSelectedPedidoId(null); setIsCheckMode(false); }} className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-gray-400 active:scale-95 transition-all">
                       <ChevronLeft className="w-5 h-5" />
                     </button>
                   </div>
@@ -684,59 +640,13 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* AGREGAR MANUAL */}
-                  {showAddManual ? (
-                    <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#1A1D24] border border-figmaPurple/30 animate-fade-in">
-                      <input
-                        autoFocus
-                        type="text"
-                        value={manualItemText}
-                        onChange={(e) => setManualItemText(e.target.value)}
-                        placeholder="Ej: Ir a la verdulería..."
-                        className="flex-1 bg-transparent text-white text-sm outline-none placeholder-gray-500"
-                        onKeyDown={(e) => e.key === 'Enter' && handleAddManualItem()}
-                      />
-                      <button onClick={() => { setShowAddManual(false); setManualItemText(''); }} className="p-2 text-gray-400">
-                        <X className="w-4 h-4" />
-                      </button>
-                      <button onClick={handleAddManualItem} className="p-2 bg-figmaPurple text-white rounded-xl">
-                        <Check className="w-4 h-4" />
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => setShowAddManual(true)}
-                        className="flex-1 py-4 rounded-2xl border border-dashed border-white/20 text-gray-400 flex items-center justify-center gap-2 active:scale-95 transition-all text-sm font-bold"
-                      >
-                        <span className="text-lg leading-none mt-[-2px]">+</span> Agregar Manual
-                      </button>
-                      <button
-                        onClick={handleVoiceInput}
-                        className={`w-[60px] flex items-center justify-center rounded-2xl active:scale-95 transition-all border ${
-                          isListening ? 'bg-figmaRed border-red-500 text-white animate-pulse' : 'bg-white/5 border-dashed border-white/20 text-gray-400'
-                        }`}
-                      >
-                        <Mic className={`w-5 h-5 ${isListening ? 'animate-bounce' : ''}`} />
-                      </button>
-                    </div>
-                  )}
-                </div>
-
                   {/* LISTA DE ITEMS */}
-                  <div className="space-y-3 py-4">
+                  <div className="space-y-3 pb-2">
                     {[...selectedPedido.items].sort((a, b) => {
                       const aChecked = checkedSet.has(a.ean);
                       const bChecked = checkedSet.has(b.ean);
-                      
-                      // Unchecked first
-                      if (!aChecked && bChecked) return -1;
-                      if (aChecked && !bChecked) return 1;
-                      
-                      // EAN items before manual items
-                      if (!a.isManual && b.isManual) return -1;
-                      if (a.isManual && !b.isManual) return 1;
-                      
+                      if (aChecked && !bChecked) return -1;
+                      if (!aChecked && bChecked) return 1;
                       return 0;
                     }).map(item => {
                       const checked = checkedSet.has(item.ean);
@@ -744,14 +654,7 @@ export default function App() {
                         <div
                           key={item.ean}
                           onClick={() => {
-                            if (!isCheckMode) {
-                              setActiveTab('escanear');
-                              return;
-                            }
-                            if (item.isManual && !checked && cart.length > 0) {
-                              setItemToLink(item);
-                              return;
-                            }
+                            if (!isCheckMode) return;
                             setPedidos(prev => prev.map(p => {
                               if (p.id !== selectedPedidoId) return p;
                               const c = new Set(p.checkedEans || []);
@@ -784,48 +687,61 @@ export default function App() {
                             <p className={`text-xs font-black truncate ${checked ? 'line-through text-gray-500' : 'text-white'}`}>{item.name}</p>
                             {!item.isManual && <p className="text-[10px] text-gray-600 mt-0.5">x{item.quantity}</p>}
                           </div>
-                          {/* Precio / Edit / Delete */}
-                          <div className="flex items-center gap-1 shrink-0">
+                          {/* Precio / Delete */}
+                          <div className="flex items-center gap-3 shrink-0">
                             {!item.isManual && (
-                              <p className="text-sm font-black text-white mr-2">{fmtP(getEffectivePrice(item) * item.quantity)}</p>
+                              <p className="text-sm font-black text-white">{fmtP(getEffectivePrice(item) * item.quantity)}</p>
                             )}
-                            <button 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                if (item.isManual) {
-                                  setItemToQuickAdd({ ...item, orderId: selectedPedidoId });
-                                  setEnteredPrice('');
-                                } else {
-                                  handleBarcodeScanned(item.ean);
-                                }
-                              }} 
-                              className="p-1.5 text-gray-500 hover:text-green-500 active:scale-95 transition-all bg-white/5 rounded-lg"
-                            >
-                              <Check className="w-4 h-4" />
-                            </button>
-                            <button 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setItemToEdit({ ...item, orderId: selectedPedidoId });
-                              }} 
-                              className="p-1.5 text-gray-500 hover:text-figmaCyan active:scale-95 transition-all bg-white/5 rounded-lg"
-                            >
-                              <Edit2 className="w-4 h-4" />
-                            </button>
-                            <button 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setItemToDelete({ orderId: selectedPedidoId, ean: item.ean, name: item.name });
-                              }} 
-                              className="p-1.5 text-gray-500 hover:text-figmaRed active:scale-95 transition-all bg-white/5 rounded-lg"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </button>
+                            {!isCheckMode && (
+                              <button 
+                                onClick={(e) => handleRemovePedidoItem(selectedPedidoId, item.ean, e)} 
+                                className="p-1.5 text-gray-500 hover:text-figmaRed active:scale-95 transition-all bg-white/5 rounded-lg"
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            )}
                           </div>
                         </div>
                       );
                     })}
                     
+                    {/* AGREGAR MANUAL */}
+                    {showAddManual ? (
+                      <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#1A1D24] border border-figmaPurple/30 animate-fade-in">
+                        <input
+                          autoFocus
+                          type="text"
+                          value={manualItemText}
+                          onChange={(e) => setManualItemText(e.target.value)}
+                          placeholder="Ej: Ir a la verdulería..."
+                          className="flex-1 bg-transparent text-white text-sm outline-none placeholder-gray-500"
+                          onKeyDown={(e) => e.key === 'Enter' && handleAddManualItem()}
+                        />
+                        <button onClick={() => { setShowAddManual(false); setManualItemText(''); }} className="p-2 text-gray-400">
+                          <X className="w-4 h-4" />
+                        </button>
+                        <button onClick={handleAddManualItem} className="p-2 bg-figmaPurple text-white rounded-xl">
+                          <Check className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => setShowAddManual(true)}
+                          className="flex-1 py-4 rounded-2xl border border-dashed border-white/20 text-gray-400 flex items-center justify-center gap-2 active:scale-95 transition-all text-sm font-bold"
+                        >
+                          <span className="text-lg leading-none mt-[-2px]">+</span> Agregar Manual
+                        </button>
+                        <button
+                          onClick={handleVoiceInput}
+                          className={`w-[60px] flex items-center justify-center rounded-2xl active:scale-95 transition-all border ${
+                            isListening ? 'bg-figmaRed border-red-500 text-white animate-pulse' : 'bg-white/5 border-dashed border-white/20 text-gray-400'
+                          }`}
+                        >
+                          <Mic className={`w-5 h-5 ${isListening ? 'animate-bounce' : ''}`} />
+                        </button>
+                      </div>
+                    )}
                   </div>
 
                   {/* FOOTER: CHEQUEAR PEDIDO */}
@@ -850,101 +766,31 @@ export default function App() {
                     >
                       {isCheckMode ? <><CheckSquare className="w-4 h-4" /> Finalizar Chequeo</> : <><Square className="w-4 h-4" /> Chequear Pedido</>}
                     </button>
-                    {!isCheckMode && (
-                      <button
-                        onClick={() => {
-                          const realItems = selectedPedido.items.filter(i => !i.isManual);
-                          if (realItems.length === 0) return;
-
-                          setCart(prevCart => {
-                            const newCart = [...prevCart];
-                            realItems.forEach(product => {
-                              const existingIndex = newCart.findIndex(item => item.ean === product.ean && item.qtyPromoFormula === product.qtyPromoFormula);
-                              if (existingIndex > -1) {
-                                const existingItem = { ...newCart[existingIndex] };
-                                existingItem.quantity += product.quantity;
-                                newCart[existingIndex] = existingItem;
-                              } else {
-                                newCart.push({ ...product });
-                              }
-                            });
-                            return newCart;
-                          });
-
-                          setPedidos(prev => prev.map(p => {
-                            if (p.id !== selectedPedidoId) return p;
-                            const c = new Set(p.checkedEans || []);
-                            realItems.forEach(i => c.add(i.ean));
-                            return { ...p, checkedEans: Array.from(c) };
-                          }));
-
-                          setActiveTab('changuito');
-                        }}
-                        className="w-full py-3 bg-figmaPurple text-white rounded-2xl font-black text-[11px] uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2"
-                      >
-                        <ShoppingCart className="w-4 h-4" /> Enviar al Changuito
-                      </button>
-                    )}
-                    {isCheckMode && (
-                      <button
-                        onClick={() => {
-                          const cartEans = new Set(cart.map(c => c.ean));
-                          setPedidos(prev => prev.map(p => {
-                            if (p.id !== selectedPedidoId) return p;
-                            const c = new Set(p.checkedEans || []);
-                            p.items.forEach(i => {
-                              if (!i.isManual) {
-                                if (cartEans.has(i.ean)) {
-                                  c.add(i.ean);
-                                } else {
-                                  c.delete(i.ean);
-                                }
-                              }
-                            });
-                            return { ...p, checkedEans: Array.from(c) };
-                          }));
-                        }}
-                        className="w-full py-3 bg-figmaCyan/20 text-figmaCyan rounded-2xl font-black text-[11px] uppercase tracking-widest active:scale-95 transition-all border border-figmaCyan/30 flex items-center justify-center gap-2"
-                      >
-                        <Sparkles className="w-4 h-4" /> Autocompletar con Changuito
-                      </button>
-                    )}
                     <button
-                      onClick={() => {
-                        const unchecked = selectedPedido.items.filter(i => !checkedSet.has(i.ean));
-                        if (unchecked.length > 0) {
-                          setShowCloseOrderConfirm(true);
-                        } else {
-                          setPedidos(prev => prev.filter(p => p.id !== selectedPedidoId));
-                          setSelectedPedidoId(null);
-                        }
-                      }}
+                      onClick={() => { setPedidos(prev => prev.filter(p => p.id !== selectedPedidoId)); setSelectedPedidoId(null); }}
                       className="w-full py-3 bg-white/5 text-red-500/70 rounded-2xl font-black text-[11px] uppercase tracking-widest active:scale-95 transition-all border border-white/5"
                     >
-                      Cerrar Pedido
+                      Eliminar Pedido
                     </button>
                   </div>
                 </div>
               );
             })() : (
-              <div className="animate-fade-in min-h-full pb-32">
-                <div className="sticky top-0 z-10 bg-black pt-4 pb-4 space-y-4 border-b border-white/10 -mx-6 px-6">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-base font-black text-white">Pedidos Guardados</h2>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/5">
-                      {pedidos.length} pedido{pedidos.length !== 1 ? 's' : ''}
-                    </span>
-                  </div>
-
-                  <button
-                    onClick={() => { setCreateListName(''); setShowCreateListModal(true); }}
-                    className="w-full py-4 bg-figmaPurple text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2"
-                  >
-                    <Plus className="w-5 h-5" />
-                    Nueva Lista Vacía
-                  </button>
+              <div className="pt-2 space-y-4 animate-fade-in">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-base font-black text-white">Pedidos Guardados</h2>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/5">
+                    {pedidos.length} pedido{pedidos.length !== 1 ? 's' : ''}
+                  </span>
                 </div>
-                <div className="pt-4">
+
+                <button
+                  onClick={() => { setCreateListName(''); setShowCreateListModal(true); }}
+                  className="w-full py-4 bg-figmaPurple text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-purple-900/30 flex items-center justify-center gap-2 mb-2"
+                >
+                  <Plus className="w-5 h-5" />
+                  Nueva Lista Vacía
+                </button>
 
                 {pedidos.length === 0 ? (
                   <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
@@ -963,60 +809,30 @@ export default function App() {
                       const isComplete = checkedCount === totalCount && totalCount > 0;
                       
                       return (
-                      <div
+                      <button
                         key={p.id}
-                        className="w-full bg-[#1A1D24] rounded-3xl p-5 border border-white/5 flex flex-col gap-4 text-left"
+                        onClick={() => { setSelectedPedidoId(p.id); setIsCheckMode(false); }}
+                        className="w-full bg-[#1A1D24] rounded-3xl p-5 border border-white/5 flex flex-col gap-4 active:scale-[0.98] transition-all text-left"
                       >
-                        <div className="flex items-center justify-between w-full">
-                          <div 
-                            className="flex items-center gap-4 flex-1 min-w-0 active:scale-[0.98] transition-all cursor-pointer"
-                            onClick={() => { setSelectedPedidoId(p.id); setIsCheckMode(false); }}
-                          >
-                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all ${
-                              isComplete ? 'bg-green-500/10 border-green-500/20' : 'bg-figmaPurple/20 border-figmaPurple/20'
-                            }`}>
-                              <Package className={`w-5 h-5 ${isComplete ? 'text-green-500' : 'text-figmaPurple'}`} />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm font-black text-white truncate">{p.name}</p>
-                              <p className="text-[10px] font-bold text-gray-600 mt-0.5 flex items-center gap-1">
-                                <Calendar className="w-2.5 h-2.5" />
-                                {new Date(p.date).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'})}
-                                <span className="text-gray-700 mx-0.5">·</span>
-                                <span>{new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS'}).format(p.totalPagar)}</span>
-                              </p>
-                            </div>
+                        <div className="flex items-center gap-4 w-full">
+                          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all ${
+                            isComplete ? 'bg-green-500/10 border-green-500/20' : 'bg-figmaPurple/20 border-figmaPurple/20'
+                          }`}>
+                            <Package className={`w-5 h-5 ${isComplete ? 'text-green-500' : 'text-figmaPurple'}`} />
                           </div>
-                          
-                          {/* Botones de acción */}
-                          <div className="flex items-center gap-1 shrink-0 ml-2">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setOrderToRename(p);
-                                setEditingNameValue(p.name);
-                              }}
-                              className="p-2 text-gray-500 hover:text-figmaCyan active:scale-95 transition-all bg-white/5 rounded-xl"
-                            >
-                              <Edit2 className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setOrderToDelete(p);
-                              }}
-                              className="p-2 text-gray-500 hover:text-figmaRed active:scale-95 transition-all bg-white/5 rounded-xl"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </button>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-black text-white truncate">{p.name}</p>
+                            <p className="text-[10px] font-bold text-gray-600 mt-0.5 flex items-center gap-1">
+                              <Calendar className="w-2.5 h-2.5" />
+                              {new Date(p.date).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'})}
+                              <span className="text-gray-700 mx-0.5">·</span>
+                              <span>{new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS'}).format(p.totalPagar)}</span>
+                            </p>
                           </div>
                         </div>
 
                         {/* Progress Bar Area */}
-                        <div 
-                          className="w-full space-y-1.5 pt-1 active:scale-[0.98] transition-all cursor-pointer"
-                          onClick={() => { setSelectedPedidoId(p.id); setIsCheckMode(false); }}
-                        >
+                        <div className="w-full space-y-1.5 pt-1">
                           <div className="flex justify-between items-center">
                             <p className={`text-[10px] font-bold ${isComplete ? 'text-green-500' : 'text-figmaCyan'}`}>
                               {checkedCount} / {totalCount} productos chequeados
@@ -1032,11 +848,10 @@ export default function App() {
                             />
                           </div>
                         </div>
-                      </div>
+                      </button>
                     )})}
                   </div>
                 )}
-                </div>
               </div>
             )
           )}
@@ -1047,23 +862,13 @@ export default function App() {
             {[
                 { id: 'inicio', icon: Home, label: 'Inicio' },
                 { id: 'ofertas', icon: Tag, label: 'Ofertas' },
-                { id: 'escanear', icon: Scan, label: 'Escanear' },
+                { id: 'escanear', icon: Scan, label: 'Escanear', action: () => setIsScannerOpen(true) },
                 { id: 'changuito', icon: ShoppingCart, label: 'Carrito', badge: cart.length },
                 { id: 'pedidos',   icon: ClipboardList, label: 'Pedidos', badge: selectedPedido ? selectedPedido.items.length - (selectedPedido.checkedEans || []).length : pedidos.length }
             ].map(tab => (
                 <button
                     key={tab.id}
-                    onClick={() => {
-                        if (tab.action) {
-                            tab.action();
-                        } else {
-                            if (tab.id === 'pedidos' && activeTab === 'pedidos') {
-                                setSelectedPedidoId(null);
-                                setIsCheckMode(false);
-                            }
-                            setActiveTab(tab.id);
-                        }
-                    }}
+                    onClick={tab.action ? tab.action : () => setActiveTab(tab.id)}
                     className={`flex flex-col items-center gap-1.5 transition-all ${activeTab === tab.id ? 'text-figmaCyan' : 'text-gray-600'}`}
                 >
                     <div className="relative">
@@ -1075,6 +880,12 @@ export default function App() {
             ))}
         </nav>
       </div>
+
+      {isScannerOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-3xl animate-fade-in">
+          <div className="relative w-full max-w-[440px] h-full sm:h-auto"><Scanner onScanSuccess={handleBarcodeScanned} onScanError={alert} onClose={() => setIsScannerOpen(false)} /></div>
+        </div>
+      )}
 
       <ProductBottomSheet isOpen={isBottomSheetOpen} product={scannedProduct} getEffectivePrice={getEffectivePrice} onClose={() => setIsBottomSheetOpen(false)} onConfirm={handleConfirmProduct} />
       <ManualFallbackModal isOpen={isManualModalOpen} ean={activeEan} errorType={errorType} onClose={() => setIsManualModalOpen(false)} onConfirm={(p) => { 
@@ -1111,11 +922,7 @@ export default function App() {
             {/* Botones */}
             <div className="w-full flex flex-col gap-3 pt-2">
               <button
-                onClick={() => { 
-                  setCart([]); 
-                  setPedidos(prev => prev.map(p => ({ ...p, checkedEans: [] })));
-                  setShowClearConfirm(false); 
-                }}
+                onClick={() => { setCart([]); setShowClearConfirm(false); }}
                 className="w-full py-4 bg-figmaRed text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-red-900/30 flex items-center justify-center gap-2"
               >
                 <Trash2 className="w-4 h-4" />
@@ -1337,6 +1144,12 @@ export default function App() {
           </div>
         </div>
       )}
+
+    </div>
+  );
+}
+
+
       {/* ── MODAL: VINCULAR A CARRITO ───────────────────────────────────── */}
       {itemToLink && selectedPedido && (
         <div className="fixed inset-0 z-[300] flex items-end justify-center animate-fade-in" onClick={() => setItemToLink(null)}>
@@ -1352,62 +1165,39 @@ export default function App() {
             </div>
 
             <div className="w-full flex flex-col gap-2 pt-2 max-h-[30vh] overflow-y-auto no-scrollbar">
-              {cart
-                .filter(cartItem => !(selectedPedido.checkedEans || []).includes(cartItem.ean))
-                .sort((a, b) => {
-                  const score = (str) => {
-                    const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9\s]/g, "");
-                    const w1 = norm(str).split(/\s+/).filter(Boolean);
-                    const w2 = norm(itemToLink.name).split(/\s+/).filter(Boolean);
-                    let inter = 0;
-                    for (let w of w1) { if (w2.includes(w)) inter++; }
-                    let s = inter * 10;
-                    if (norm(itemToLink.name).includes(norm(str)) || norm(str).includes(norm(itemToLink.name))) s += 5;
-                    return s;
-                  };
-                  return score(b.name) - score(a.name);
-                })
-                .map(cartItem => (
-                  <button
-                    key={cartItem.ean}
-                    onClick={() => {
-                      setPedidos(prev => prev.map(p => {
-                        if (p.id !== selectedPedidoId) return p;
-                        const newItems = p.items.map(i => {
-                          if (i.ean === itemToLink.ean) {
-                            return {
-                              ...i,
-                              ean: cartItem.ean,
-                              name: cartItem.name,
-                              isManual: false,
-                              listPrice: cartItem.listPrice,
-                              price: cartItem.price,
-                              tipoOferta: cartItem.tipoOferta,
-                              qtyPromoFormula: cartItem.qtyPromoFormula,
-                              ofertaActiva: cartItem.ofertaActiva,
-                              imageUrl: cartItem.imageUrl
-                            };
-                          }
-                          return i;
-                        });
-                        
-                        const c = new Set(p.checkedEans || []);
-                        c.delete(itemToLink.ean);
-                        c.add(cartItem.ean);
+                          return {
+                            ...i,
+                            ean: cartItem.ean,
+                            name: cartItem.name,
+                            isManual: false,
+                            listPrice: cartItem.listPrice,
+                            price: cartItem.price,
+                            tipoOferta: cartItem.tipoOferta,
+                            qtyPromoFormula: cartItem.qtyPromoFormula,
+                            ofertaActiva: cartItem.ofertaActiva,
+                            imageUrl: cartItem.imageUrl
+                          };
+                        }
+                        return i;
+                      });
+                      
+                      const c = new Set(p.checkedEans || []);
+                      c.delete(itemToLink.ean);
+                      c.add(cartItem.ean);
 
-                        const tp = newItems.filter(i => !i.isManual).reduce((acc, i) => acc + getEffectivePrice(i) * i.quantity, 0);
-                        const ts = newItems.filter(i => !i.isManual).reduce((acc, i) => acc + i.listPrice * i.quantity, 0);
+                      const tp = newItems.filter(i => !i.isManual).reduce((acc, i) => acc + getEffectivePrice(i) * i.quantity, 0);
+                      const ts = newItems.filter(i => !i.isManual).reduce((acc, i) => acc + i.listPrice * i.quantity, 0);
 
-                        return { 
-                          ...p, 
-                          items: newItems, 
-                          checkedEans: Array.from(c),
-                          totalPagar: tp,
-                          totalAhorro: ts - tp
-                        };
-                      }));
-                      setItemToLink(null);
-                    }}
+                      return { 
+                        ...p, 
+                        items: newItems, 
+                        checkedEans: Array.from(c),
+                        totalPagar: tp,
+                        totalAhorro: ts - tp
+                      };
+                    }));
+                    setItemToLink(null);
+                  }}
                   className="w-full py-3 bg-[#1A1D24] text-white rounded-2xl font-black text-sm active:scale-95 transition-all border border-white/10 flex items-center gap-3 px-4"
                 >
                   <div className={`w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shrink-0 bg-white p-1`}>
@@ -1441,345 +1231,6 @@ export default function App() {
                 Solo marcar como chequeado
               </button>
               <button onClick={() => setItemToLink(null)}
-                className="w-full py-4 bg-white/5 text-gray-400 rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all border border-white/5">
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── MODAL: CERRAR PEDIDO CON FALTANTES ───────────────────────────────────── */}
-      {showCloseOrderConfirm && (
-        <div className="fixed inset-0 z-[300] flex items-end justify-center animate-fade-in" onClick={() => setShowCloseOrderConfirm(false)}>
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
-          <div className="relative w-full max-w-[440px] bg-[#0F1115] border border-white/8 rounded-t-[3rem] px-8 pt-8 pb-14 flex flex-col items-center gap-5 shadow-2xl animate-slide-up" onClick={e => e.stopPropagation()}>
-            <div className="w-10 h-1 bg-white/15 rounded-full -mt-2" />
-            <div className="w-16 h-16 rounded-[1.5rem] bg-figmaPurple/20 border border-figmaPurple/30 flex items-center justify-center p-2">
-              <ClipboardList className="w-7 h-7 text-figmaPurple" />
-            </div>
-            <div className="text-center space-y-1">
-              <h3 className="text-lg font-black text-white tracking-tight leading-tight">Hay productos sin cargar</h3>
-              <p className="text-xs text-gray-400 max-w-[280px] pt-1">¿Qué querés hacer con los productos que faltan?</p>
-            </div>
-            <div className="w-full flex flex-col gap-3 pt-4">
-              <button
-                onClick={() => {
-                  setPedidos(prev => prev.map(p => {
-                    if (p.id !== selectedPedidoId) return p;
-                    const c = new Set(p.checkedEans || []);
-                    const uncheckedItems = p.items.filter(i => !c.has(i.ean));
-                    return { ...p, items: uncheckedItems, checkedEans: [] };
-                  }));
-                  setShowCloseOrderConfirm(false);
-                  setSelectedPedidoId(null);
-                }}
-                className="w-full py-4 bg-figmaPurple text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-purple-900/30"
-              >
-                Deja lo que falta
-              </button>
-              <button
-                onClick={() => {
-                  setPedidos(prev => prev.filter(p => p.id !== selectedPedidoId));
-                  setShowCloseOrderConfirm(false);
-                  setSelectedPedidoId(null);
-                }}
-                className="w-full py-4 bg-figmaRed text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-red-900/30"
-              >
-                Cierra
-              </button>
-              <button onClick={() => setShowCloseOrderConfirm(false)}
-                className="w-full py-4 bg-white/5 text-gray-400 rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all border border-white/5">
-                Cancela
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── MODAL: CONFIRMAR ELIMINAR ITEM ───────────────────────────────────── */}
-      {itemToDelete && (
-        <div className="fixed inset-0 z-[300] flex items-end justify-center animate-fade-in" onClick={() => setItemToDelete(null)}>
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
-          <div className="relative w-full max-w-[440px] bg-[#0F1115] border border-white/8 rounded-t-[3rem] px-8 pt-8 pb-14 flex flex-col items-center gap-5 shadow-2xl animate-slide-up" onClick={e => e.stopPropagation()}>
-            <div className="w-10 h-1 bg-white/15 rounded-full -mt-2" />
-            <div className="w-16 h-16 rounded-[1.5rem] bg-red-900/20 border border-red-500/30 flex items-center justify-center p-2">
-              <Trash2 className="w-7 h-7 text-figmaRed" />
-            </div>
-            <div className="text-center space-y-1">
-              <h3 className="text-lg font-black text-white tracking-tight leading-tight">Eliminar Producto</h3>
-              <p className="text-xs text-gray-400 max-w-[280px] pt-1">¿Estás seguro de eliminar <span className="text-figmaRed font-bold">"{itemToDelete.name}"</span> del pedido?</p>
-            </div>
-            <div className="w-full flex flex-col gap-3 pt-4">
-              <button
-                onClick={() => {
-                  setPedidos(prev => prev.map(p => {
-                    if (p.id !== itemToDelete.orderId) return p;
-                    return {
-                      ...p,
-                      items: p.items.filter(i => i.ean !== itemToDelete.ean),
-                      checkedEans: (p.checkedEans || []).filter(e => e !== itemToDelete.ean)
-                    };
-                  }));
-                  setItemToDelete(null);
-                }}
-                className="w-full py-4 bg-figmaRed text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-red-900/30"
-              >
-                Eliminar
-              </button>
-              <button onClick={() => setItemToDelete(null)}
-                className="w-full py-4 bg-white/5 text-gray-400 rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all border border-white/5">
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── MODAL: EDITAR ITEM ───────────────────────────────────── */}
-      {itemToEdit && (
-        <div className="fixed inset-0 z-[300] flex items-end justify-center animate-fade-in" onClick={() => setItemToEdit(null)}>
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
-          <div className="relative w-full max-w-[440px] bg-[#0F1115] border border-white/8 rounded-t-[3rem] px-8 pt-8 pb-14 flex flex-col items-center gap-5 shadow-2xl animate-slide-up" onClick={e => e.stopPropagation()}>
-            <div className="w-10 h-1 bg-white/15 rounded-full -mt-2" />
-            <div className="w-16 h-16 rounded-[1.5rem] bg-figmaCyan/20 border border-figmaCyan/30 flex items-center justify-center p-2">
-              <Edit2 className="w-7 h-7 text-figmaCyan" />
-            </div>
-            <div className="text-center space-y-1">
-              <h3 className="text-lg font-black text-white tracking-tight leading-tight">Editar Producto</h3>
-            </div>
-            <div className="w-full space-y-4 pt-2">
-              <div>
-                <label className="text-[10px] text-gray-400 font-bold uppercase tracking-widest px-2 mb-1 block">Nombre</label>
-                <input
-                  type="text"
-                  value={itemToEdit.name}
-                  onChange={(e) => setItemToEdit({ ...itemToEdit, name: e.target.value })}
-                  className="w-full bg-[#1A1D24] text-white p-4 rounded-2xl border border-white/10 outline-none focus:border-figmaCyan/50"
-                />
-              </div>
-              {!itemToEdit.isManual && (
-                <div>
-                  <label className="text-[10px] text-gray-400 font-bold uppercase tracking-widest px-2 mb-1 block">Cantidad</label>
-                  <div className="flex items-center gap-4 bg-[#1A1D24] p-2 rounded-2xl border border-white/10">
-                    <button 
-                      onClick={() => setItemToEdit({ ...itemToEdit, quantity: Math.max(1, (itemToEdit.quantity || 1) - 1) })}
-                      className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-white active:scale-95"
-                    >
-                      <Minus className="w-4 h-4" />
-                    </button>
-                    <span className="flex-1 text-center font-black text-white text-lg">{itemToEdit.quantity || 1}</span>
-                    <button 
-                      onClick={() => setItemToEdit({ ...itemToEdit, quantity: (itemToEdit.quantity || 1) + 1 })}
-                      className="w-10 h-10 bg-figmaCyan text-black rounded-xl flex items-center justify-center active:scale-95"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="w-full flex flex-col gap-3 pt-2">
-              <button
-                onClick={() => {
-                  setPedidos(prev => prev.map(p => {
-                    if (p.id !== itemToEdit.orderId) return p;
-                    const c = new Set(p.checkedEans || []);
-                    const newItems = p.items.map(i => {
-                      if (i.ean === itemToEdit.ean) {
-                        const nameChanged = i.name !== itemToEdit.name;
-                        const newEan = (nameChanged && !i.isManual) ? `manual_${Date.now()}_${Math.random()}` : i.ean;
-                        if (newEan !== i.ean && c.has(i.ean)) {
-                          c.delete(i.ean);
-                          c.add(newEan);
-                        }
-                        return { 
-                          ...i, 
-                          name: itemToEdit.name, 
-                          quantity: itemToEdit.quantity,
-                          isManual: nameChanged ? true : i.isManual,
-                          ean: newEan
-                        };
-                      }
-                      return i;
-                    });
-                    return { ...p, items: newItems, checkedEans: Array.from(c) };
-                  }));
-                  setItemToEdit(null);
-                }}
-                className="w-full py-4 bg-figmaCyan text-black rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-cyan-900/30"
-              >
-                Guardar
-              </button>
-              <button onClick={() => setItemToEdit(null)}
-                className="w-full py-4 bg-white/5 text-gray-400 rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all border border-white/5">
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── MODAL: ELIMINAR PEDIDO DESDE EL LISTADO ───────────────────────────────────── */}
-      {orderToDelete && (
-        <div className="fixed inset-0 z-[300] flex items-end justify-center animate-fade-in" onClick={() => setOrderToDelete(null)}>
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
-          <div className="relative w-full max-w-[440px] bg-[#0F1115] border border-white/8 rounded-t-[3rem] px-8 pt-8 pb-14 flex flex-col items-center gap-5 shadow-2xl animate-slide-up" onClick={e => e.stopPropagation()}>
-            <div className="w-10 h-1 bg-white/15 rounded-full -mt-2" />
-            <div className="w-16 h-16 rounded-[1.5rem] bg-red-900/20 border border-red-500/30 flex items-center justify-center p-2">
-              <Trash2 className="w-7 h-7 text-figmaRed" />
-            </div>
-            <div className="text-center space-y-1">
-              <h3 className="text-lg font-black text-white tracking-tight leading-tight">Eliminar Pedido</h3>
-              <p className="text-xs text-gray-400 max-w-[280px] pt-1">¿Estás seguro de eliminar el pedido <span className="text-figmaRed font-bold">"{orderToDelete.name}"</span>? Esta acción no se puede deshacer.</p>
-            </div>
-            <div className="w-full flex flex-col gap-3 pt-4">
-              <button
-                onClick={() => {
-                  setPedidos(prev => prev.filter(p => p.id !== orderToDelete.id));
-                  setOrderToDelete(null);
-                }}
-                className="w-full py-4 bg-figmaRed text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-red-900/30"
-              >
-                Eliminar Pedido
-              </button>
-              <button onClick={() => setOrderToDelete(null)}
-                className="w-full py-4 bg-white/5 text-gray-400 rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all border border-white/5">
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── MODAL: RENOMBRAR PEDIDO DESDE EL LISTADO ───────────────────────────────────── */}
-      {orderToRename && (
-        <div className="fixed inset-0 z-[300] flex items-end justify-center animate-fade-in" onClick={() => setOrderToRename(null)}>
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
-          <div className="relative w-full max-w-[440px] bg-[#0F1115] border border-white/8 rounded-t-[3rem] px-8 pt-8 pb-14 flex flex-col items-center gap-5 shadow-2xl animate-slide-up" onClick={e => e.stopPropagation()}>
-            <div className="w-10 h-1 bg-white/15 rounded-full -mt-2" />
-            <div className="w-16 h-16 rounded-[1.5rem] bg-figmaPurple/20 border border-figmaPurple/30 flex items-center justify-center p-2">
-              <Edit2 className="w-7 h-7 text-figmaPurple" />
-            </div>
-            <div className="text-center space-y-1">
-              <h3 className="text-lg font-black text-white tracking-tight leading-tight">Renombrar Pedido</h3>
-            </div>
-            <div className="w-full space-y-4 pt-2">
-              <div>
-                <label className="text-[10px] text-gray-400 font-bold uppercase tracking-widest px-2 mb-1 block">Nombre del Pedido</label>
-                <input
-                  type="text"
-                  autoFocus
-                  value={editingNameValue}
-                  onChange={(e) => setEditingNameValue(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && editingNameValue.trim()) {
-                      setPedidos(prev => prev.map(p => p.id === orderToRename.id ? { ...p, name: editingNameValue.trim() } : p));
-                      setOrderToRename(null);
-                    }
-                  }}
-                  className="w-full bg-[#1A1D24] text-white p-4 rounded-2xl border border-white/10 outline-none focus:border-figmaPurple/50"
-                />
-              </div>
-            </div>
-            <div className="w-full flex flex-col gap-3 pt-4">
-              <button
-                onClick={() => {
-                  if (editingNameValue.trim()) {
-                    setPedidos(prev => prev.map(p => p.id === orderToRename.id ? { ...p, name: editingNameValue.trim() } : p));
-                  }
-                  setOrderToRename(null);
-                }}
-                className="w-full py-4 bg-figmaPurple text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-purple-900/30"
-              >
-                Guardar Nombre
-              </button>
-              <button onClick={() => setOrderToRename(null)}
-                className="w-full py-4 bg-white/5 text-gray-400 rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all border border-white/5">
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── MODAL: AGREGAR RÁPIDO CON PRECIO AL CARRITO ───────────────────────────────────── */}
-      {itemToQuickAdd && (
-        <div className="fixed inset-0 z-[300] flex items-end justify-center animate-fade-in" onClick={() => setItemToQuickAdd(null)}>
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
-          <div className="relative w-full max-w-[440px] bg-[#0F1115] border border-white/8 rounded-t-[3rem] px-8 pt-8 pb-14 flex flex-col items-center gap-5 shadow-2xl animate-slide-up" onClick={e => e.stopPropagation()}>
-            <div className="w-10 h-1 bg-white/15 rounded-full -mt-2" />
-            <div className="w-16 h-16 rounded-[1.5rem] bg-green-900/20 border border-green-500/30 flex items-center justify-center p-2">
-              <Check className="w-7 h-7 text-green-500" />
-            </div>
-            <div className="text-center space-y-1">
-              <h3 className="text-lg font-black text-white tracking-tight leading-tight">Agregar y Chequear</h3>
-              <p className="text-xs text-gray-400 max-w-[280px] pt-1">Vas a agregar <span className="text-green-500 font-bold">"{itemToQuickAdd.name}"</span> al carrito y se marcará como chequeado.</p>
-            </div>
-            <div className="w-full space-y-4 pt-2">
-              <div>
-                <label className="text-[10px] text-gray-400 font-bold uppercase tracking-widest px-2 mb-1 block">Precio Unitario ($)</label>
-                <input
-                  type="number"
-                  autoFocus
-                  inputMode="decimal"
-                  value={enteredPrice}
-                  onChange={(e) => setEnteredPrice(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && enteredPrice.trim()) {
-                      const finalPrice = Number(enteredPrice) || 0;
-                      
-                      // 1. Add to cart
-                      const cartItem = {
-                        ...itemToQuickAdd,
-                        listPrice: finalPrice,
-                        price: finalPrice,
-                        quantity: itemToQuickAdd.quantity || 1,
-                      };
-                      setCart(prev => [...prev, cartItem]);
-
-                      // 2. Mark as checked
-                      setPedidos(prev => prev.map(p => {
-                        if (p.id !== itemToQuickAdd.orderId) return p;
-                        const c = new Set(p.checkedEans || []);
-                        c.add(itemToQuickAdd.ean);
-                        return { ...p, checkedEans: Array.from(c) };
-                      }));
-                      setItemToQuickAdd(null);
-                    }
-                  }}
-                  className="w-full bg-[#1A1D24] text-white p-4 rounded-2xl border border-white/10 outline-none focus:border-green-500/50 text-xl font-black text-center"
-                  placeholder="0.00"
-                />
-              </div>
-            </div>
-            <div className="w-full flex flex-col gap-3 pt-4">
-              <button
-                onClick={() => {
-                  const finalPrice = Number(enteredPrice) || 0;
-                  // 1. Add to cart
-                  const cartItem = {
-                    ...itemToQuickAdd,
-                    listPrice: finalPrice,
-                    price: finalPrice,
-                    quantity: itemToQuickAdd.quantity || 1,
-                  };
-                  setCart(prev => [...prev, cartItem]);
-
-                  // 2. Mark as checked
-                  setPedidos(prev => prev.map(p => {
-                    if (p.id !== itemToQuickAdd.orderId) return p;
-                    const c = new Set(p.checkedEans || []);
-                    c.add(itemToQuickAdd.ean);
-                    return { ...p, checkedEans: Array.from(c) };
-                  }));
-                  setItemToQuickAdd(null);
-                }}
-                className="w-full py-4 bg-green-500 text-white rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-green-900/30"
-              >
-                Agregar al Carrito
-              </button>
-              <button onClick={() => setItemToQuickAdd(null)}
                 className="w-full py-4 bg-white/5 text-gray-400 rounded-2xl font-black text-sm uppercase tracking-widest active:scale-95 transition-all border border-white/5">
                 Cancelar
               </button>
